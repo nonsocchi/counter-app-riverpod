@@ -1,6 +1,5 @@
-import 'dart:developer';
-
 import 'package:counter_app/models/counter.dart';
+import 'package:counter_app/widgets/counter_text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -35,15 +34,8 @@ class MyHomePage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // [ref.watch] listens for [state] changes in [provider] which is the
-    // current instance of [CounterModel].
-    // This also provides a reference to the notifier state, stored in the
-    // [CounterModel].
-
-    // Now when the [state] changes, the [build] method will re-run to update
-    // the new [state].
-    final counterModel = ref.watch(provider);
-
+    // ignore: avoid_print
+    print('building HomePage');
     return Scaffold(
       appBar: AppBar(
         title: const Text('My Counter App'),
@@ -51,19 +43,19 @@ class MyHomePage extends HookConsumerWidget {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text('You have pushed the button this many times:'),
-            Text(
-              // [counterModel.count] contains the current integer value of the
-              // state.
-              '${counterModel.count}',
-              style: Theme.of(context).textTheme.headline4,
-            ),
+          children: const <Widget>[
+            Text('You have pushed the button this many times:'),
+            CounterTextWidget()
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          // [ref.read] gets a reference to the state management class
+          // [CounterNotifier] without listening for changes in the state.
+
+          ref.read(provider.notifier).increment();
+        },
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),
