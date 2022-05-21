@@ -1,4 +1,4 @@
-### Flutter Riverpod tutorial: Counter App
+## Counter App with Riverpod.
 
 This project modifies the default starter app (in `main.dart` when creating a new flutter app) to use the [Hooks Riverpod](https://pub.dev/packages/hooks_riverpod "Hooks Riverpod") state management package.
 
