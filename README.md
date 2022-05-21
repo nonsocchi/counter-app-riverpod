@@ -2,6 +2,8 @@
 
 This project modifies the default starter app (in `main.dart` when creating a new flutter app) to use the [Hooks Riverpod](https://pub.dev/packages/hooks_riverpod "Hooks Riverpod") state management package.
 
+Inspired by [Surgach](https://medium.com/flutter-community/flutter-riverpod-tutorial-counter-app-ed3aa758f02f).
+
 [Hooks Riverpod](https://pub.dev/packages/hooks_riverpod "Hooks Riverpod") is a state-management library that:
 - catches programming errors at compile time rather than at runtime
 - removes nesting for listening/combining objects
